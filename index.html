@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victorian Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- خطوط فيكتورية ورومانسية من Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="calculator-container">
+    <!-- شاشة العرض -->
+    <div class="display" id="display">0</div>
+
+    <!-- شبكة الأزرار -->
+    <div class="buttons-grid">
+      <button class="btn btn-c" onclick="clearDisplay()"></button>
+      <button class="btn btn-del" onclick="deleteLast()"></button>
+      <button class="btn btn-divide" onclick="appendOp('/')"></button>
+      <button class="btn btn-multiply" onclick="appendOp('*')"></button>
+
+      <button class="btn btn-7" onclick="appendNum('7')"></button>
+      <button class="btn btn-8" onclick="appendNum('8')"></button>
+      <button class="btn btn-9" onclick="appendNum('9')"></button>
+      <button class="btn btn-minus" onclick="appendOp('-')"></button>
+
+      <button class="btn btn-4" onclick="appendNum('4')"></button>
+      <button class="btn btn-5" onclick="appendNum('5')"></button>
+      <button class="btn btn-6" onclick="appendNum('6')"></button>
+      <button class="btn btn-plus" onclick="appendOp('+')"></button>
+
+      <button class="btn btn-1" onclick="appendNum('1')"></button>
+      <button class="btn btn-2" onclick="appendNum('2')"></button>
+      <button class="btn btn-3" onclick="appendNum('3')"></button>
+      <button class="btn btn-equals" onclick="calculate()"></button>
+
+      <button class="btn btn-dot" onclick="appendNum('.')"></button>
+      <button class="btn btn-0" onclick="appendNum('0')"></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

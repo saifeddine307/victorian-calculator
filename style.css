@@ -1,0 +1,203 @@
+/* 1. Font Face Setup */
+@font-face {
+  font-family: 'BerkshireSwash';
+  src: url('fonts/BerkshireSwash-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 2. Global Page Setup */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: url('bc.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 3. Calculator Container */
+.calculator-container {
+  width: 320px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  direction: ltr;
+  position: relative;
+  z-index: 2;
+}
+
+/* 4. Display Screen */
+.display {
+  height: 85px;
+  background: rgba(244, 235, 219, 0.92);
+  border-radius: 12px;
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 15px;
+  font-family: 'BerkshireSwash', serif;
+  font-size: 2.2rem;
+  color: #3b2a1a;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  direction: ltr;
+}
+
+/* 5. Buttons Grid Layout */
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  direction: ltr;
+}
+
+/* 6. General Button Styling */
+.btn {
+  height: 70px;
+  border: none;
+  background-color: transparent;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.1s ease, filter 0.15s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+}
+
+.btn:active {
+  transform: scale(0.93);
+}
+
+/* 7. Image Mappings for Buttons */
+.btn-c        { background-image: url('btn_0000_c.png'); }
+.btn-del      { background-image: url('btn_0001_del.png'); }
+.btn-divide   { background-image: url('btn_0002__.png'); }
+.btn-multiply { background-image: url('btn_0003__.png'); }
+
+.btn-7 { background-image: url('btn_0004_7.png'); }
+.btn-8 { background-image: url('btn_0005_8.png'); }
+.btn-9 { background-image: url('btn_0006_9.png'); }
+.btn-minus { background-image: url('btn_0007_-.png'); }
+
+.btn-4 { background-image: url('btn_0008_4.png'); }
+.btn-5 { background-image: url('btn_0009_5.png'); }
+.btn-6 { background-image: url('btn_0010_6.png'); }
+.btn-plus { background-image: url('btn_0011_+.png'); }
+
+.btn-1 { background-image: url('btn_0012_1.png'); }
+.btn-2 { background-image: url('btn_0013_2.png'); }
+.btn-3 { background-image: url('btn_0014_3.png'); }
+.btn-dot { background-image: url('btn_0015_..png'); }
+
+.btn-0 { 
+  background-image: url('btn_0016_0.png'); 
+  grid-column: span 2; 
+}
+
+.btn-equals {
+  background-image: url('btn_0017_=.png');
+  grid-row: span 2;
+  height: 148px;
+}
+
+/* 8. Inside Display - "I love you" Styling */
+.love-revealed {
+  font-family: 'BerkshireSwash', serif !important;
+  font-size: 1.6rem !important;
+  color: #8b0000 !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-shadow: 0 0 8px rgba(212, 117, 137, 0.5);
+  animation: heartPulse 0.6s ease-out forwards;
+}
+
+@keyframes heartPulse {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 9. Outside Overlay - Big "Happy Birthday!" Text */
+/* Responsive Overlay for Mobile & Desktop */
+#bday-overlay {
+  position: fixed;
+  top: 11%; /* Lowered position to bring it down right above the calculator */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'BerkshireSwash', serif;
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  color: #8b0000;
+  text-shadow: 2px 4px 15px rgba(244, 235, 219, 0.9), 0 0 25px rgba(209, 73, 91, 0.6);
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+  width: 95vw;
+  box-sizing: border-box;
+  direction: ltr;
+  unicode-bidi: isolate;
+  animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20px) scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* 10. Flying Hearts Animation */
+.heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 26px;
+  color: #d1495b;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.4) rotate(360deg);
+    opacity: 0;
+  }
+
+@media (max-width: 600px) {
+  #bday-overlay {
+    font-size: 2.2rem; /* Shrinks the text so it fits the narrow screen */
+    top: 6%;           /* Adjusts vertical position */
+    width: 90%;        /* Keeps text contained */
+    text-align: center;
+    white-space: normal; /* Allows text to wrap neatly if screen is very small */
+  }
+
+  .calculator-container {
+    width: 90%;        /* Fits calculator smoothly on small phones */
+    max-width: 320px;
+    padding: 10px;
+  }
+
+  .display {
+    font-size: 1.8rem;
+  }
+}
+}
