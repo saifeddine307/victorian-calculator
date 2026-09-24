@@ -129,10 +129,9 @@ body {
 }
 
 /* 9. Outside Overlay - Big "Happy Birthday!" Text */
-/* Responsive Overlay for Mobile & Desktop */
 #bday-overlay {
   position: fixed;
-  top: 11%; /* Lowered position to bring it down right above the calculator */
+  top: 11%;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'BerkshireSwash', serif;
@@ -148,6 +147,7 @@ body {
   unicode-bidi: isolate;
   animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
+
 @keyframes popIn {
   0% {
     opacity: 0;
@@ -180,18 +180,20 @@ body {
     transform: translateY(-100vh) scale(1.4) rotate(360deg);
     opacity: 0;
   }
+} /* تم إضافة قوس الإغلاق هنا */
 
+/* 11. Mobile Responsive Adjustments */
 @media (max-width: 600px) {
   #bday-overlay {
-    font-size: 2.2rem; /* Shrinks the text so it fits the narrow screen */
-    top: 6%;           /* Adjusts vertical position */
-    width: 90%;        /* Keeps text contained */
+    font-size: 2.2rem;
+    top: 6%;
+    width: 90%;
     text-align: center;
-    white-space: normal; /* Allows text to wrap neatly if screen is very small */
+    white-space: normal;
   }
 
   .calculator-container {
-    width: 90%;        /* Fits calculator smoothly on small phones */
+    width: 90%;
     max-width: 320px;
     padding: 10px;
   }
@@ -199,5 +201,4 @@ body {
   .display {
     font-size: 1.8rem;
   }
-}
 }

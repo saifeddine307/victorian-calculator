@@ -49,7 +49,7 @@ function calculate() {
 
 function triggerSecret() {
   // 1. عرض I love you داخل شاشة الحاسبة
-  display.innerText = 'I love you ❤️';
+  display.innerText = 'Samia ❤️';
   display.classList.add('love-revealed');
 
   // 2. إنشاء عنصر Happy Birthday كبير خارج الآلة الحاسبة
