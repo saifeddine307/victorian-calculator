@@ -1,3 +1,65 @@
+/* =========================================
+   PASSWORD PROTECTION
+   ========================================= */
+
+const CALCULATOR_PASSWORD = "when the rain stops"; 
+// 👆 غير 1234 إلى كلمة المرور التي تريدها
+
+
+function checkPassword() {
+
+  const input = document.getElementById('password-input');
+  const error = document.getElementById('password-error');
+  const card = document.querySelector('.password-card');
+
+  const enteredPassword = input.value;
+
+  if (enteredPassword === CALCULATOR_PASSWORD) {
+
+    // إخفاء شاشة كلمة المرور
+    document
+      .getElementById('password-screen')
+      .classList.add('unlocked');
+
+    // إظهار الآلة الحاسبة
+    document
+      .getElementById('calculator')
+      .classList.add('unlocked');
+
+  } else {
+
+    // إظهار رسالة الخطأ
+    error.classList.add('show');
+
+    // اهتزاز البطاقة
+    card.classList.remove('shake');
+
+    // إعادة تشغيل animation
+    void card.offsetWidth;
+
+    card.classList.add('shake');
+
+    // مسح كلمة المرور
+    input.value = '';
+
+    // التركيز على الحقل
+    input.focus();
+
+  }
+}
+
+
+/* الضغط على Enter */
+
+document
+  .getElementById('password-input')
+  .addEventListener('keydown', function(event) {
+
+    if (event.key === 'Enter') {
+      checkPassword();
+    }
+
+  });
 let display = document.getElementById('display');
 let currentInput = '';
 

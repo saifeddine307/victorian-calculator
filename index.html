@@ -10,12 +10,55 @@
 </head>
 <body>
 
-  <div class="calculator-container">
+  <!-- شاشة كلمة المرور -->
+  <div id="password-screen" class="password-screen">
+
+    <div class="password-card">
+
+      <div class="password-title">
+        PRIVATE CALCULATOR
+      </div>
+
+      <div class="password-divider">❦</div>
+
+      <p class="password-subtitle">
+        Enter password to continue
+      </p>
+
+      <input
+        type="password"
+        id="password-input"
+        class="password-input"
+        placeholder="••••••••"
+        autocomplete="off"
+      >
+
+      <button
+        id="password-button"
+        class="password-button"
+        onclick="checkPassword()"
+      >
+        ENTER
+      </button>
+
+      <div id="password-error" class="password-error">
+        Incorrect password
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- الآلة الحاسبة -->
+  <div class="calculator-container" id="calculator">
+
     <!-- شاشة العرض -->
     <div class="display" id="display">0</div>
 
     <!-- شبكة الأزرار -->
     <div class="buttons-grid">
+
       <button class="btn btn-c" onclick="clearDisplay()"></button>
       <button class="btn btn-del" onclick="deleteLast()"></button>
       <button class="btn btn-divide" onclick="appendOp('/')"></button>
@@ -38,9 +81,11 @@
 
       <button class="btn btn-dot" onclick="appendNum('.')"></button>
       <button class="btn btn-0" onclick="appendNum('0')"></button>
+
     </div>
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
